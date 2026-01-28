@@ -170,7 +170,8 @@ p {
 /* Input Section */
 .input-section {
     width: 100%;
-    max-width: 600px;
+    max-width: 100%;
+    /* Expanded to match grid */
     /* Keep input focused even on wide screens */
     margin: 0 auto;
     /* Center it */
@@ -181,7 +182,8 @@ p {
     background: var(--input-bg);
     border: 1px solid var(--card-border);
     border-radius: var(--radius-lg);
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    /* Adjusted padding for slimmer look */
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
@@ -193,7 +195,8 @@ p {
 
 textarea {
     width: 100%;
-    min-height: 80px;
+    min-height: 50px;
+    /* Reduced further */
     background: transparent;
     border: none;
     resize: none;
