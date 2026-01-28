@@ -129,94 +129,106 @@ p {
     align-items: center;
 }
 
-/* Logo Mark - Realistic Black Hole */
+/* Logo Mark - Gargantua Black Hole (Monochrome) */
 .logo-mark {
     margin-bottom: var(--spacing-md);
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    height: 140px;
-    /* Increased size */
+    height: 160px;
+    /* Large canvas for the grandeur */
+    perspective: 1000px;
+    /* 3D perspective for the disk */
 }
 
+/* The Event Horizon (Shadow) */
 .logo-circle {
     width: 60px;
-    /* Larger Event Horizon */
     height: 60px;
     background: #000;
     border-radius: 50%;
     position: relative;
-    z-index: 2;
-    /* Deep black hole center with slight inner shadow */
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 1);
-}
-
-/* Accretion Disk (The glowing ring) */
-.logo-circle::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 70px;
-    /* Just slightly larger than the hole */
-    height: 70px;
-    border-radius: 50%;
-    /* Soft white ring, no hard lines */
+    z-index: 10;
     box-shadow:
-        0 0 10px 2px rgba(255, 255, 255, 0.6),
-        /* Inner bright ring */
-        0 0 30px 10px rgba(255, 255, 255, 0.2),
-        /* Outer glow */
-        0 0 60px 20px rgba(255, 255, 255, 0.05);
-    /* Distant haze */
-    opacity: 0.9;
-    animation: breatheGlow 4s ease-in-out infinite alternate;
-    z-index: 1;
+        0 0 20px rgba(0, 0, 0, 1),
+        /* Deep shadow */
+        0 0 10px rgba(255, 255, 255, 0.1);
+    /* Faint edge */
 }
 
-/* Gravitational Lensing (Subtle warping field) */
+/* Gravitational Lensing (The Halo / Photon Ring) */
 .logo-circle::after {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 160px;
-    /* Large influence area */
-    height: 160px;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
-    z-index: 0;
-    animation: warpField 8s linear infinite;
+    /* A thin, bright ring clinging to the shadow */
+    box-shadow: inset 0 0 4px 1px rgba(255, 255, 255, 0.4);
+    z-index: 11;
 }
 
-@keyframes breatheGlow {
+/* The Accretion Disk */
+.logo-mark::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 160px;
+    height: 160px;
+    transform: translate(-50%, -50%) rotateX(75deg);
+    /* Flattens it */
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    /* Outer dust */
+    /* Complex gradient for the disk bands */
+    background: radial-gradient(transparent 35%,
+            rgba(255, 255, 255, 0.8) 45%,
+            /* Inner bright edge */
+            rgba(255, 255, 255, 0.1) 60%,
+            transparent 70%);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    animation: diskSpin 15s linear infinite;
+    z-index: 5;
+    /* Passes behind the sphere */
+}
+
+/* Front part of the disk (simulating 3D layering) */
+.logo-mark::after {
+    content: '';
+    position: absolute;
+    top: 55%;
+    /* Offset slightly down */
+    left: 50%;
+    width: 160px;
+    height: 40px;
+    /* Flattened height */
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    /* Only show the front curve */
+    background: radial-gradient(ellipse at top,
+            transparent 40%,
+            rgba(255, 255, 255, 0.6) 50%,
+            rgba(255, 255, 255, 0.1) 70%,
+            transparent 80%);
+    z-index: 20;
+    /* In front of sphere */
+    opacity: 0.8;
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+@keyframes diskSpin {
     0% {
-        box-shadow:
-            0 0 10px 2px rgba(255, 255, 255, 0.5),
-            0 0 30px 10px rgba(255, 255, 255, 0.15),
-            0 0 60px 20px rgba(255, 255, 255, 0.05);
-        transform: translate(-50%, -50%) scale(1);
+        transform: translate(-50%, -50%) rotateX(75deg) rotate(0deg);
     }
 
     100% {
-        box-shadow:
-            0 0 12px 3px rgba(255, 255, 255, 0.7),
-            0 0 40px 15px rgba(255, 255, 255, 0.25),
-            0 0 80px 30px rgba(255, 255, 255, 0.08);
-        transform: translate(-50%, -50%) scale(1.05);
-    }
-}
-
-@keyframes warpField {
-    0% {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-
-    100% {
-        transform: translate(-50%, -50%) rotate(360deg);
+        transform: translate(-50%, -50%) rotateX(75deg) rotate(360deg);
     }
 }
 
