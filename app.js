@@ -42,6 +42,7 @@ class TodaysTrashApp {
         this.setupEventListeners();
         this.startTimer();
         this.render();
+        this.validateInput(); // Ensure initial state is correct
 
         this.elements.currentYear.textContent = new Date().getFullYear();
     }
@@ -110,18 +111,7 @@ class TodaysTrashApp {
 
     setupEventListeners() {
         // Input validation and char count
-        this.elements.input.addEventListener('input', () => {
-            const currentLength = this.elements.input.value.length;
-            this.elements.charCount.textContent = `${currentLength} / 300`;
-            this.elements.btnThrow.disabled = currentLength === 0;
-
-            // Visual cue for nearing limit
-            if (currentLength >= 280) {
-                this.elements.charCount.style.color = 'var(--danger-color)';
-            } else {
-                this.elements.charCount.style.color = '';
-            }
-        });
+        this.elements.input.addEventListener('input', () => this.validateInput());
 
         // Open Modal
         this.elements.btnThrow.addEventListener('click', () => {
@@ -137,6 +127,19 @@ class TodaysTrashApp {
         this.elements.modal.addEventListener('click', (e) => {
             if (e.target === this.elements.modal) this.closeModal();
         });
+    }
+
+    validateInput() {
+        const currentLength = this.elements.input.value.length;
+        this.elements.charCount.textContent = `${currentLength} / 300`;
+        this.elements.btnThrow.disabled = currentLength === 0;
+
+        // Visual cue for nearing limit
+        if (currentLength >= 280) {
+            this.elements.charCount.style.color = 'var(--danger-color)';
+        } else {
+            this.elements.charCount.style.color = '';
+        }
     }
 
     openModal() {
@@ -162,8 +165,8 @@ class TodaysTrashApp {
         this.createParticles();
         this.closeModal();
         this.elements.input.value = '';
-        this.elements.charCount.textContent = '0 / 300';
-        this.elements.btnThrow.disabled = true;
+        this.validateInput(); // Reset char count and color
+
 
         this.render();
     }
