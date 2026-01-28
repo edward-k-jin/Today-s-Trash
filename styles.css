@@ -299,11 +299,8 @@ button {
     width: 100%;
     margin-bottom: var(--spacing-sm);
     break-inside: avoid;
-
-    /* Ensure content flows naturally */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    vertical-align: top;
+    /* Ensure alignment */
 }
 
 @media (min-width: 768px) {
