@@ -193,7 +193,7 @@ p {
 
 textarea {
     width: 100%;
-    min-height: 120px;
+    min-height: 80px;
     background: transparent;
     border: none;
     resize: none;
@@ -265,24 +265,21 @@ button {
 }
 
 .trash-grid {
-    display: grid;
-    gap: var(--spacing-sm);
-    grid-template-columns: 1fr;
-    /* Default mobile: 1 column */
+    column-count: 1;
+    column-gap: var(--spacing-sm);
 }
 
-/* Tablet & Desktop Grid */
+/* Tablet & Desktop Masonry */
 @media (min-width: 768px) {
     .trash-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-md);
+        column-count: 2;
+        column-gap: var(--spacing-md);
     }
 }
 
 @media (min-width: 1024px) {
     .trash-grid {
-        grid-template-columns: repeat(3, 1fr);
-        /* 3 columns on desktop */
+        column-count: 3;
     }
 }
 
@@ -297,9 +294,22 @@ button {
     transform: translateY(20px);
     transition: transform 0.3s ease, background 0.3s ease;
 
+    /* Masonry Item Styles */
+    display: inline-block;
+    width: 100%;
+    margin-bottom: var(--spacing-sm);
+    break-inside: avoid;
+
+    /* Ensure content flows naturally */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+    .trash-card {
+        margin-bottom: var(--spacing-md);
+    }
 }
 
 .trash-card:hover {
