@@ -12,7 +12,11 @@ class TodaysTrashApp {
             title: document.getElementById('app-title'),
             slogan: document.getElementById('app-slogan'),
             countdownLabel: document.getElementById('countdown-label'),
-            countdownTimer: document.getElementById('countdown-timer'),
+            countdownLabel: document.getElementById('countdown-label'),
+            // Timer components
+            timerHours: document.getElementById('timer-hours'),
+            timerMinutes: document.getElementById('timer-minutes'),
+            timerSeconds: document.getElementById('timer-seconds'),
             input: document.getElementById('trash-input'),
             charCount: document.getElementById('char-count'),
             btnThrow: document.getElementById('btn-throw'),
@@ -208,8 +212,9 @@ class TodaysTrashApp {
             const minutes = Math.floor((diff / (1000 * 60)) % 60);
             const seconds = Math.floor((diff / 1000) % 60);
 
-            this.elements.countdownTimer.textContent =
-                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            this.elements.timerHours.textContent = hours.toString().padStart(2, '0');
+            this.elements.timerMinutes.textContent = minutes.toString().padStart(2, '0');
+            this.elements.timerSeconds.textContent = seconds.toString().padStart(2, '0');
         };
 
         updateTimer();

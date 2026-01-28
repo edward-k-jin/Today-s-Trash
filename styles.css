@@ -169,24 +169,62 @@ h1 {
     border-color: rgba(255, 255, 255, 0.15);
 }
 
-#countdown-label {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: rgba(255, 255, 255, 0.4);
-    margin-bottom: 8px;
-    font-weight: 600;
+#countdown-timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
 }
 
-#countdown-timer {
-    font-family: 'Inter', monospace;
-    font-variant-numeric: tabular-nums;
-    font-size: 2rem;
-    font-weight: 600;
+.flip-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flip-card {
+    background: #1e1e1e;
+    /* Darker card background */
     color: var(--text-primary);
-    letter-spacing: -0.02em;
+    font-family: 'Inter', monospace;
+    font-size: 2.5rem;
+    font-weight: 700;
     line-height: 1;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    padding: 12px 10px;
+    border-radius: 8px;
+    min-width: 60px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    /* Horizontal split line effect */
+    background-image: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.05) 50%,
+            rgba(0, 0, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0.2) 51%,
+            rgba(255, 255, 255, 0.05) 51%);
+}
+
+.flip-card::after {
+    /* Subtle highlight on top edge */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px 8px 0 0;
+}
+
+.flip-sep {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 700;
+    margin-top: -4px;
+    /* Align visually with center of cards */
 }
 
 /* Input Section */

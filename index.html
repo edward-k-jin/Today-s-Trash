@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Today's Trash - Leave what you want to forget here</title>
     <meta name="description" content="Leave what you want to forget here. When today ends, it all disappears.">
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
 
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="background-effects">
         <div class="gradient-blob blob-1"></div>
@@ -23,18 +26,32 @@
     <div class="app-container">
         <header class="hero-section">
             <h1 id="app-title" class="fade-in">Today's Trash</h1>
-            <p id="app-slogan" class="fade-in delay-1">Leave what you want to forget here.<br>When today ends, it all disappears.</p>
-            
+            <p id="app-slogan" class="fade-in delay-1">Leave what you want to forget here.<br>When today ends, it all
+                disappears.</p>
+
             <div class="timer-container fade-in delay-2">
                 <span id="countdown-label">Today's Trash clears in</span>
-                <span id="countdown-timer">00:00:00</span>
+                <div id="countdown-timer" class="flip-clock">
+                    <div class="flip-unit">
+                        <div class="flip-card" id="timer-hours">00</div>
+                    </div>
+                    <span class="flip-sep">:</span>
+                    <div class="flip-unit">
+                        <div class="flip-card" id="timer-minutes">00</div>
+                    </div>
+                    <span class="flip-sep">:</span>
+                    <div class="flip-unit">
+                        <div class="flip-card" id="timer-seconds">00</div>
+                    </div>
+                </div>
             </div>
         </header>
 
         <main>
             <section class="input-section fade-in delay-3">
                 <div class="input-wrapper">
-                    <textarea id="trash-input" placeholder="Write it down here. (Max 300 chars)" maxlength="300"></textarea>
+                    <textarea id="trash-input" placeholder="Write it down here. (Max 300 chars)"
+                        maxlength="300"></textarea>
                     <div class="input-footer">
                         <span id="char-count">0 / 300</span>
                         <button id="btn-throw" disabled>Throw away</button>
@@ -51,7 +68,8 @@
         </main>
 
         <footer class="fade-in delay-5">
-            <p id="footer-privacy">This service does not collect any personal data.<br>All data is stored locally on your device and automatically deleted at midnight.</p>
+            <p id="footer-privacy">This service does not collect any personal data.<br>All data is stored locally on
+                your device and automatically deleted at midnight.</p>
             <p class="copyright">© <span id="current-year">2026</span> Today's Trash</p>
         </footer>
     </div>
@@ -60,7 +78,8 @@
     <div id="confirmation-modal" class="modal-overlay hidden">
         <div class="modal-content">
             <h3 id="modal-title">Are you sure you want to throw this away?</h3>
-            <p id="modal-body">Once thrown away, it cannot be edited or retrieved.<br>When today ends, it will disappear forever.</p>
+            <p id="modal-body">Once thrown away, it cannot be edited or retrieved.<br>When today ends, it will disappear
+                forever.</p>
             <div class="modal-actions">
                 <button id="btn-cancel" class="btn-secondary">Cancel</button>
                 <button id="btn-confirm" class="btn-primary">Throw away</button>
@@ -73,4 +92,5 @@
 
     <script type="module" src="app.js"></script>
 </body>
+
 </html>
