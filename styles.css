@@ -9,14 +9,17 @@
     --input-bg: rgba(255, 255, 255, 0.05);
     --input-focus-border: rgba(255, 255, 255, 0.2);
     --font-family: 'Pretendard', 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-    
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 2rem;
-    --spacing-lg: 4rem;
-    
+
+    /* Fluid Sizing for Responsiveness */
+    --spacing-xs: clamp(0.25rem, 1vw, 0.5rem);
+    --spacing-sm: clamp(0.75rem, 2vw, 1rem);
+    --spacing-md: clamp(1.5rem, 4vw, 2rem);
+    --spacing-lg: clamp(2.5rem, 8vw, 5rem);
+
     --radius-md: 12px;
     --radius-lg: 20px;
+
+    --container-max-width: 600px;
 }
 
 * {
@@ -50,10 +53,11 @@ body {
 
 .gradient-blob {
     position: absolute;
-    width: 600px;
-    height: 600px;
+    width: min(600px, 80vw);
+    height: min(600px, 80vw);
     border-radius: 50%;
-    filter: blur(100px);
+    filter: blur(80px);
+    /* Reduced slightly for performance on mobile */
     opacity: 0.15;
     animation: drift 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -72,33 +76,45 @@ body {
 }
 
 @keyframes drift {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(50px, 50px) scale(1.1); }
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(50px, 50px) scale(1.1);
+    }
 }
 
 /* Layout */
 .app-container {
     width: 100%;
-    max-width: 600px;
+    max-width: var(--container-max-width);
     padding: 0 var(--spacing-sm);
     padding-bottom: var(--spacing-lg);
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: max-width 0.3s ease;
+}
+
+/* Desktop Expansion: Allow wider layout on large screens for grid */
+@media (min-width: 1024px) {
+    :root {
+        --container-max-width: 1000px;
+    }
 }
 
 /* Typography */
 h1 {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 300;
-    /* letter-spacing: -0.02em; */
     margin-bottom: var(--spacing-xs);
     text-align: center;
 }
 
 p {
     color: var(--text-secondary);
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
     font-weight: 400;
 }
 
@@ -113,6 +129,10 @@ p {
 #app-slogan {
     margin-bottom: var(--spacing-md);
     line-height: 1.6;
+    max-width: 90%;
+    /* Prevent too wide on desktop */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .timer-container {
@@ -124,10 +144,15 @@ p {
     border: 1px solid var(--card-border);
     border-radius: 100px;
     backdrop-filter: blur(10px);
+    transition: transform 0.2s ease;
+}
+
+.timer-container:hover {
+    transform: scale(1.02);
 }
 
 #countdown-label {
-    font-size: 0.75rem;
+    font-size: clamp(0.7rem, 1.5vw, 0.8rem);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     opacity: 0.7;
@@ -137,7 +162,7 @@ p {
 #countdown-timer {
     font-family: 'Inter', monospace;
     font-variant-numeric: tabular-nums;
-    font-size: 1.25rem;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
     font-weight: 500;
     color: var(--text-primary);
 }
@@ -145,6 +170,10 @@ p {
 /* Input Section */
 .input-section {
     width: 100%;
+    max-width: 600px;
+    /* Keep input focused even on wide screens */
+    margin: 0 auto;
+    /* Center it */
     margin-bottom: var(--spacing-lg);
 }
 
@@ -159,7 +188,7 @@ p {
 .input-wrapper:focus-within {
     background: rgba(255, 255, 255, 0.08);
     border-color: var(--input-focus-border);
-    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
 }
 
 textarea {
@@ -201,6 +230,13 @@ button {
     font-weight: 500;
     font-family: var(--font-family);
     transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    /* Touch target optimization */
+    min-height: 48px;
+    min-width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #btn-throw {
@@ -232,6 +268,22 @@ button {
     display: grid;
     gap: var(--spacing-sm);
     grid-template-columns: 1fr;
+    /* Default mobile: 1 column */
+}
+
+/* Tablet & Desktop Grid */
+@media (min-width: 768px) {
+    .trash-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+}
+
+@media (min-width: 1024px) {
+    .trash-grid {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 columns on desktop */
+    }
 }
 
 .trash-card {
@@ -243,12 +295,17 @@ button {
     animation: slideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     opacity: 0;
     transform: translateY(20px);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .trash-card:hover {
-    transform: scale(1.01);
-    background: rgba(255, 255, 255, 0.05);
+    transform: scale(1.02);
+    background: rgba(255, 255, 255, 0.08);
+    /* More visible hover state */
 }
 
 .trash-card p {
@@ -268,6 +325,8 @@ button {
 
 /* Empty State */
 .empty-state {
+    grid-column: 1 / -1;
+    /* Span all columns */
     text-align: center;
     padding: var(--spacing-lg) 0;
     opacity: 0.5;
@@ -281,12 +340,17 @@ footer {
     text-align: center;
     border-top: 1px solid var(--card-border);
     padding-top: var(--spacing-md);
+
+    /* Ensure footer doesn't get too wide on desktop */
+    max-width: 800px;
 }
 
 #footer-privacy {
     font-size: 0.8rem;
     margin-bottom: var(--spacing-sm);
     line-height: 1.5;
+    word-break: keep-all;
+    /* Avoid awkward breaks in Korean */
 }
 
 .copyright {
@@ -310,6 +374,8 @@ footer {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    padding: var(--spacing-sm);
+    /* Prevent touching edges on mobile */
 }
 
 .modal-overlay:not(.hidden) {
@@ -319,7 +385,7 @@ footer {
 
 .modal-content {
     background: #1a1a1a;
-    width: 90%;
+    width: 100%;
     max-width: 400px;
     padding: var(--spacing-md);
     border-radius: var(--radius-lg);
@@ -351,6 +417,11 @@ footer {
     justify-content: center;
 }
 
+.modal-actions button {
+    flex: 1;
+    /* Match widths on mobile */
+}
+
 .btn-secondary {
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -377,19 +448,35 @@ footer {
     animation: fadeIn 1s ease forwards;
 }
 
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; }
-.delay-4 { animation-delay: 0.8s; }
-.delay-5 { animation-delay: 1.0s; }
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
+
+.delay-3 {
+    animation-delay: 0.6s;
+}
+
+.delay-4 {
+    animation-delay: 0.8s;
+}
+
+.delay-5 {
+    animation-delay: 1.0s;
+}
 
 @keyframes fadeIn {
-    to { opacity: 1; }
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes slideUp {
-    to { 
-        opacity: 1; 
+    to {
+        opacity: 1;
         transform: translateY(0);
     }
 }
@@ -411,13 +498,16 @@ canvas {
 ::-webkit-scrollbar {
     width: 6px;
 }
+
 ::-webkit-scrollbar-track {
     background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.4);
 }
