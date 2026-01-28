@@ -5,7 +5,7 @@ const translations = {
         placeholder: "이곳에 털어놓으세요. (최대 300자)",
         button_throw: "버리기",
         modal_title: "이 기억을 정말 휴지통에 버리실건가요?",
-        modal_body: "한 번 버리면 오늘 안에서도 수정하거나 되돌릴 수 없습니다.<br>오늘이 지나면, 모두 사라집니다.",
+        modal_body: "한 번 버리면 되돌릴 수 없습니다.<br>오늘이 지나면, 모두 사라집니다.",
         modal_confirm: "버리기",
         modal_cancel: "취소",
         countdown_label: "비워지기까지",
