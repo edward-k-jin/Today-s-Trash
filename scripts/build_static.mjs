@@ -42,19 +42,18 @@ function generatePage(lang, content) {
     // C. Replace Content
     // We need to be careful with replacers.
     // Title
-    html = html.replace(/<title>.*?<\/title>/, `<title>${content.title} - ${content.slogan.replace('<br>', ' ')}</title>`);
+    html = html.replace(/<title>.*?<\/title>/, `<title>${content.meta_title}</title>`);
 
     // Meta Description
-    const metaDesc = content.slogan.replace('<br>', ' ');
-    html = html.replace(/<meta name="description" content=".*?">/, `<meta name="description" content="${metaDesc}">`);
+    html = html.replace(/<meta name="description" content=".*?">/, `<meta name="description" content="${content.meta_description}">`);
 
     // OG Title & Description
-    html = html.replace(/<meta property="og:title" content=".*?">/, `<meta property="og:title" content="${content.title}">`);
-    html = html.replace(/<meta property="og:description"\s+content=".*?">/, `<meta property="og:description" content="${metaDesc}">`);
+    html = html.replace(/<meta property="og:title" content=".*?">/, `<meta property="og:title" content="${content.meta_title}">`);
+    html = html.replace(/<meta property="og:description"\s+content=".*?">/, `<meta property="og:description" content="${content.meta_description}">`);
 
     // Twitter Title & Description
-    html = html.replace(/<meta property="twitter:title" content=".*?">/, `<meta property="twitter:title" content="${content.title}">`);
-    html = html.replace(/<meta property="twitter:description"\s+content=".*?">/, `<meta property="twitter:description" content="${metaDesc}">`);
+    html = html.replace(/<meta property="twitter:title" content=".*?">/, `<meta property="twitter:title" content="${content.meta_title}">`);
+    html = html.replace(/<meta property="twitter:description"\s+content=".*?">/, `<meta property="twitter:description" content="${content.meta_description}">`);
 
     // Body Content (Direct IDs)
     // We can't just run JS, we have to string replace known IDs.

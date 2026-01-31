@@ -1,6 +1,8 @@
 const translations = {
     ko: {
         title: "오늘의 휴지통",
+        meta_title: "오늘의 휴지통 - 잊고 싶은 기억을 삭제해 드립니다.",
+        meta_description: "잊고 싶은 기억이 있나요? 이곳에 털어놓고 훌훌 던져버리세요. 모든 기록은 자정에 자동으로 영구 삭제됩니다.",
         slogan: "지우고 싶은 기억을 이곳에 버리세요.<br>오늘이 지나면, 모두 사라집니다.",
         placeholder: "이곳에 털어놓으세요. (최대 300자)",
         button_throw: "버리기",
@@ -14,6 +16,8 @@ const translations = {
     },
     en: {
         title: "Today's Trash",
+        meta_title: "Today's Trash - A simple space to erase memories you want to forget",
+        meta_description: "Leave what you want to forget here. A private space where your worries are safely stored locally and deleted automatically at midnight.",
         slogan: "Leave what you want to forget here.<br>When today ends, it all disappears.",
         placeholder: "Write it down here. (Max 300 chars)",
         button_throw: "Throw away",
@@ -27,6 +31,8 @@ const translations = {
     },
     ja: {
         title: "今日のゴミ箱",
+        meta_title: "今日のゴミ箱 - 忘れたい記憶を削除します",
+        meta_description: "忘れたい記憶はありませんか？ここに書いて捨ててしまいましょう。すべての記録は深夜0時に自動的に完全削除されます，",
         slogan: "忘れたい記憶をここに捨ててください。<br>今日が終われば、すべて消え去ります。",
         placeholder: "ここに書き出してください。（最大300文字）",
         button_throw: "捨てる",
@@ -40,6 +46,8 @@ const translations = {
     },
     es: {
         title: "Papelera de Hoy",
+        meta_title: "Papelera de Hoy - Un espacio para borrar los recuerdos que quieres olvidar",
+        meta_description: "Deja aquí lo que quieras olvidar. Un espacio privado donde tus preocupaciones se guardan localmente y se borran automáticamente a medianoche.",
         slogan: "Deja aquí lo que quieras olvidar.<br>Cuando termine el día, todo desaparecerá.",
         placeholder: "Escríbelo aquí. (Máx 300 caracteres)",
         button_throw: "Tirar",
@@ -53,6 +61,8 @@ const translations = {
     },
     fr: {
         title: "Corbeille d'Aujourd'hui",
+        meta_title: "Corbeille d'Aujourd'hui - Effacez les souvenirs que vous voulez oublier",
+        meta_description: "Déposez ici ce que vous voulez oublier. Un espace privé où vos soucis sont stockés localement et supprimés automatiquement à minuit.",
         slogan: "Déposez ici ce que vous voulez oublier.<br>À la fin de la journée, tout disparaîtra.",
         placeholder: "Écrivez-le ici. (Max 300 caractères)",
         button_throw: "Jeter",
@@ -66,6 +76,8 @@ const translations = {
     },
     "zh-CN": {
         title: "今日垃圾桶",
+        meta_title: "今日垃圾桶 - 删除你想忘记的记忆",
+        meta_description: "把想忘记的记忆丢在这里。这是一个私密空间，您的烦恼仅存储在本地，并在午夜自动永久删除。",
         slogan: "把想忘记的记忆丢在这里。<br>今天过后，一切都会消失。",
         placeholder: "在这里写下你的烦恼。（最多300字）",
         button_throw: "丢弃",
@@ -79,6 +91,8 @@ const translations = {
     },
     "zh-TW": {
         title: "今日垃圾桶",
+        meta_title: "今日垃圾桶 - 刪除你想忘記的記憶",
+        meta_description: "把想忘記的記憶丟在這裡。這是一個私密空間，您的煩惱僅存儲在本地，並在午夜自動永久刪除。",
         slogan: "把想忘記的記憶丟在這裡。<br>今天過後，一切都會消失。",
         placeholder: "在這裡寫下你的煩惱。（最多300字）",
         button_throw: "丟棄",
@@ -92,6 +106,8 @@ const translations = {
     },
     vi: {
         title: "Thùng Rác Hôm Nay",
+        meta_title: "Thùng Rác Hôm Nay - Xóa bỏ những ký ức bạn muốn quên",
+        meta_description: "Hãy để lại những gì bạn muốn quên tại đây. Mọi nỗi lo lắng được lưu trữ cục bộ và tự động xóa vĩnh viễn vào nửa đêm.",
         slogan: "Hãy để lại những gì bạn muốn quên tại đây.<br>Khi ngày hôm nay kết thúc, tất cả sẽ biến mất.",
         placeholder: "Viết vào đây. (Tối đa 300 ký tự)",
         button_throw: "Vứt bỏ",
@@ -105,6 +121,8 @@ const translations = {
     },
     th: {
         title: "ถังขยะของวันนี้",
+        meta_title: "ถังขยะของวันนี้ - พื้นที่สำหรับลบความทรงจำที่คุณอยากลืม",
+        meta_description: "ทิ้งสิ่งที่คุณต้องการลืมไว้ที่นี่ พื้นที่ส่วนตัวที่ความกังวลของคุณจะถูกเก็บไว้ในเครื่องและลบออกอัตโนมัติเมื่อเที่ยงคืน",
         slogan: "ทิ้งสิ่งที่คุณต้องการลืมไว้ที่นี่<br>เมื่อหมดวันนี้ ทุกอย่างจะหายไป",
         placeholder: "เขียนระบายที่นี่ (สูงสุด 300 ตัวอักษร)",
         button_throw: "ทิ้ง",
@@ -118,6 +136,8 @@ const translations = {
     },
     id: {
         title: "Sampah Hari Ini",
+        meta_title: "Sampah Hari Ini - Hapus kenangan yang ingin Anda lupakan",
+        meta_description: "Tinggalkan apa yang ingin Anda lupakan di sini. Ruang pribadi tempat kekhawatiran Anda disimpan secara lokal dan dihapus otomatis pada tengah malam.",
         slogan: "Tinggalkan apa yang ingin Anda lupakan di sini.<br>Saat hari berakhir, semuanya akan hilang.",
         placeholder: "Tuliskan di sini. (Maks 300 karakter)",
         button_throw: "Buang",
@@ -131,6 +151,8 @@ const translations = {
     },
     "pt-BR": {
         title: "Lixo de Hoje",
+        meta_title: "Lixo de Hoje - O lugar para apagar memórias indesejadas",
+        meta_description: "Deixe aqui o que você quer esquecer. Um espaço seguro onde suas preocupações são guardadas localmente e apagadas à meia-noite.",
         slogan: "Deixe o que você quer esquecer aqui.<br>Quando o dia acabar, tudo desaparecerá.",
         placeholder: "Escreva aqui. (Máx 300 caracteres)",
         button_throw: "Jogar fora",
@@ -144,6 +166,8 @@ const translations = {
     },
     de: {
         title: "Müll von Heute",
+        meta_title: "Müll von Heute - Löschen Sie Erinnerungen, die Sie vergessen möchten",
+        meta_description: "Lassen Sie hier, was Sie vergessen möchten. Ein privater Raum, in dem Ihre Sorgen lokal gespeichert und um Mitternacht automatisch gelöscht werden.",
         slogan: "Lassen Sie hier, was Sie vergessen möchten.<br>Wenn der Tag endet, verschwindet alles.",
         placeholder: "Schreiben Sie es hier auf. (Max 300 Zeichen)",
         button_throw: "Wegwerfen",
@@ -157,6 +181,8 @@ const translations = {
     },
     ru: {
         title: "Мусорка Сегодня",
+        meta_title: "Мусорка Сегодня - Сотрите воспоминания, которые хотите забыть",
+        meta_description: "Оставьте здесь то, что хотите забыть. Личное пространство, где ваши тревоги хранятся локально и автоматически удаляются в полночь.",
         slogan: "Оставьте здесь то, что хотите забыть.<br>Когда день закончится, все исчезнет.",
         placeholder: "Напишите здесь. (Макс 300 символов)",
         button_throw: "Выбросить",
