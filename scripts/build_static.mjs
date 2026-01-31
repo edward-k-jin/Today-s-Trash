@@ -140,6 +140,11 @@ function generatePage(lang, content) {
         {
             search: "This service does not collect any personal data.<br>All data is stored locally on\n                your device and automatically deleted at midnight.",
             replace: content.footer_privacy
+        },
+        // Localized OG Image
+        {
+            search: "https://todays-trash.web.app/og-image.png",
+            replace: `${BASE_URL}/assets/${lang.toLowerCase()}.png`
         }
     ];
 
