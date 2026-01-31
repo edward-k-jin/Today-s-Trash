@@ -161,6 +161,8 @@ function generatePage(lang, content) {
     html = html.replace('href="styles.css"', 'href="../styles.css"');
     // JS
     html = html.replace('src="app.js"', 'src="../app.js"');
+    // Favicon & Assets
+    html = html.replace('href="assets/favicon.png"', 'href="../assets/favicon.png"');
 
     return html;
 }
