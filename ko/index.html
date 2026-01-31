@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 휴지통 - 지우고 싶은 기억을 이곳에 버리세요. 오늘이 지나면, 모두 사라집니다.</title>
+    <meta name="description" content="지우고 싶은 기억을 이곳에 버리세요. 오늘이 지나면, 모두 사라집니다.">
+
+        <link rel="alternate" hreflang="ko" href="https://todays-trash.web.app/ko/" />
+    <link rel="alternate" hreflang="en" href="https://todays-trash.web.app/en/" />
+    <link rel="alternate" hreflang="ja" href="https://todays-trash.web.app/ja/" />
+    <link rel="alternate" hreflang="es" href="https://todays-trash.web.app/es/" />
+    <link rel="alternate" hreflang="fr" href="https://todays-trash.web.app/fr/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://todays-trash.web.app/zh-CN/" />
+    <link rel="alternate" hreflang="zh-TW" href="https://todays-trash.web.app/zh-TW/" />
+    <link rel="alternate" hreflang="vi" href="https://todays-trash.web.app/vi/" />
+    <link rel="alternate" hreflang="th" href="https://todays-trash.web.app/th/" />
+    <link rel="alternate" hreflang="id" href="https://todays-trash.web.app/id/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://todays-trash.web.app/pt-BR/" />
+    <link rel="alternate" hreflang="de" href="https://todays-trash.web.app/de/" />
+    <link rel="alternate" hreflang="ru" href="https://todays-trash.web.app/ru/" />
+    <link rel="alternate" hreflang="x-default" href="https://todays-trash.web.app/" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+
+    <link rel="stylesheet" href="../styles.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC75TJR0FD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-PC75TJR0FD');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7218511366454960"
+        crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-7218511366454960">
+    <meta name="naver-site-verification" content="7e4b005cedfa174236230945c2e7e70aa388c2f8" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://todays-trash.web.app/">
+    <meta property="og:title" content="오늘의 휴지통">
+    <meta property="og:description" content="지우고 싶은 기억을 이곳에 버리세요. 오늘이 지나면, 모두 사라집니다.">
+    <meta property="og:image" content="https://todays-trash.web.app/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://todays-trash.web.app/">
+    <meta property="twitter:title" content="오늘의 휴지통">
+    <meta property="twitter:description" content="지우고 싶은 기억을 이곳에 버리세요. 오늘이 지나면, 모두 사라집니다.">
+    <meta property="twitter:image" content="https://todays-trash.web.app/og-image.png">
+
+    <!-- Schema.org Structured Data (GEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "오늘의 휴지통",
+      "url": "https://todays-trash.web.app/",
+      "description": "A digital emotional trash can where users can anonymously discard negative thoughts and memories. All data is stored locally and deleted at midnight.",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Anonymous writing",
+        "Auto-deletion at midnight",
+        "Local storage only",
+        "No login required"
+      ],
+      "author": {
+        "@type": "Person",
+        "name": "Edward K. Jin"
+      }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="background-effects">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-2"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="hero-section">
+            <div class="logo-mark fade-in">
+                <div class="logo-circle"></div>
+            </div>
+            <h1 id="app-title" class="fade-in">오늘의 휴지통</h1>
+            <p id="app-slogan" class="fade-in delay-1">지우고 싶은 기억을 이곳에 버리세요.<br>오늘이 지나면, 모두 사라집니다.</p>
+
+            <div class="timer-container fade-in delay-2">
+                <span id="countdown-label">비워지기까지</span>
+                <div id="countdown-timer" class="flip-clock">
+                    <div class="flip-unit">
+                        <div class="flip-card" id="timer-hours">00</div>
+                    </div>
+                    <span class="flip-sep">:</span>
+                    <div class="flip-unit">
+                        <div class="flip-card" id="timer-minutes">00</div>
+                    </div>
+                    <span class="flip-sep">:</span>
+                    <div class="flip-unit">
+                        <div class="flip-card" id="timer-seconds">00</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="input-section fade-in delay-3">
+                <div class="input-wrapper">
+                    <textarea id="trash-input" placeholder="이곳에 털어놓으세요. (최대 300자)"
+                        maxlength="300"></textarea>
+                    <div class="input-footer">
+                        <span id="char-count">0 / 300</span>
+                        <button id="btn-throw" disabled>버리기</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="list-section fade-in delay-4">
+                <div id="trash-list" class="trash-grid">
+                    <!-- Trash items will appear here -->
+                </div>
+                <p id="empty-state-message" class="empty-state hidden">아직 버려진 기억이 없습니다.</p>
+            </section>
+        </main>
+
+        <footer class="fade-in delay-5">
+            <p id="footer-privacy">이 서비스는 어떠한 개인 정보도 수집하지 않습니다.<br>모든 데이터는 사용자의 기기에만 저장되며, 자정에 자동 삭제됩니다.</p>
+            <p class="copyright">© <span id="current-year">2026</span> 오늘의 휴지통 | <a href="privacy.html"
+                    style="color: inherit; text-decoration: none;">Privacy Policy</a></p>
+        </footer>
+    </div>
+
+    <!-- Modal -->
+    <div id="confirmation-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3 id="modal-title">이 기억을 정말 휴지통에 버리실건가요?</h3>
+            <p id="modal-body">한 번 버리면 되돌릴 수 없습니다.<br>오늘이 지나면, 모두 사라집니다.</p>
+            <div class="modal-actions">
+                <button id="btn-cancel" class="btn-secondary">취소</button>
+                <button id="btn-confirm" class="btn-primary">버리기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Particle Container for effects -->
+    <div id="particles-container"></div>
+
+    <script type="module" src="../app.js"></script>
+</body>
+
+</html>

@@ -48,17 +48,33 @@ class TodaysTrashApp {
     }
 
     detectLanguage() {
+        // 1. Check URL path for language code (e.g., /en/, /ko/)
+        // We look for a segment in the path that matches a known language.
+        const pathSegments = window.location.pathname.split('/');
+        const pathLang = pathSegments.find(seg => translations[seg]);
+
+        if (pathLang) {
+            this.state.lang = pathLang;
+            return;
+        }
+
+        // 2. If no language in path, detect browser language and REDIRECT
+        // This logic runs primarily on the root index.html
         const browserLang = navigator.language.split('-')[0]; // e.g., 'en-US' -> 'en'
         const fullLang = navigator.language; // e.g., 'zh-CN'
 
-        // Check for exact match first (for zh-CN vs zh-TW)
+        let targetLang = 'en'; // Default fallback
+
         if (translations[fullLang]) {
-            this.state.lang = fullLang;
+            targetLang = fullLang;
         } else if (translations[browserLang]) {
-            this.state.lang = browserLang;
-        } else {
-            this.state.lang = 'en'; // Fallback
+            targetLang = browserLang;
         }
+
+        // Redirect to the language subfolder
+        // We use window.location.replace to avoid history stack buildup
+        const newPath = `/${targetLang}/`;
+        window.location.replace(newPath);
     }
 
     applyTranslations() {
