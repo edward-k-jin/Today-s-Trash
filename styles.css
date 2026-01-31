@@ -59,6 +59,10 @@ body {
     transition: max-width 0.3s ease;
 }
 
+main {
+    width: 100%;
+}
+
 /* Desktop Expansion: Allow wider layout on large screens for grid */
 @media (min-width: 1024px) {
     :root {
